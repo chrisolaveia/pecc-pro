@@ -1,0 +1,110 @@
+---
+const valores = [
+  {
+    icon: '🤝',
+    title: 'De la red, para la red',
+    desc: 'PECC no pertenece a una persona. Pertenece a la organización. Cada embajador que lo usa, lo construye.',
+  },
+  {
+    icon: '📚',
+    title: 'Educación antes que venta',
+    desc: 'Un líder formado vende sin vender. La lectura, la preparación y el estudio son el primer paso del negocio.',
+  },
+  {
+    icon: '🌱',
+    title: 'Sistema duplicable',
+    desc: 'Lo que no se puede duplicar, no escala. Cada herramienta, evento y capacitación existe para ser replicada.',
+  },
+  {
+    icon: '🏆',
+    title: 'Cultura de acción',
+    desc: 'Leer sin aplicar es entretenimiento. PECC mueve a las personas de la teoría a los resultados.',
+  },
+]
+---
+
+<section id="proposito" class="py-24 px-6" style="background: var(--color-surface);">
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <div class="section-eyebrow justify-center mb-4">Nuestra misión</div>
+      <h2 class="text-4xl md:text-5xl leading-tight">
+        Un sistema construido<br />
+        <span class="blue-gradient">en comunidad</span>
+      </h2>
+      <p class="font-sans text-base text-[var(--color-muted)] mt-5 max-w-2xl mx-auto leading-relaxed">
+        PECC no es una marca personal. Es la infraestructura educativa, de eventos
+        y de herramientas que sostiene nuestra red de network marketing — un sistema
+        que pertenece a la organización y crece con cada líder que la impulsa.
+      </p>
+      <div class="w-12 h-0.5 mx-auto mt-6" style="background: var(--color-green);"></div>
+    </div>
+
+    <!-- Quote block -->
+    <blockquote
+      class="relative max-w-3xl mx-auto mb-16 px-8 py-10 rounded-2xl"
+      style="background: var(--color-navy); border: 1px solid rgba(74,144,217,0.2);"
+    >
+      <div
+        class="absolute top-6 left-6 text-7xl leading-none opacity-40"
+        style="font-family: var(--font-display); color: var(--color-blue-light);"
+        aria-hidden="true"
+      >"</div>
+      <p class="relative font-sans text-base md:text-lg text-white leading-relaxed italic pl-12">
+        Las organizaciones grandes no se construyen solo con producto — se construyen
+        con un sistema que educa, moviliza eventos, facilita herramientas y acompaña
+        a cada embajador desde el primer día hasta la cumbre.
+      </p>
+      <footer class="pl-12 mt-4 font-sans text-xs tracking-widest uppercase font-semibold" style="color: var(--color-green);">
+        — Principio fundador · PECC.PRO
+      </footer>
+    </blockquote>
+
+    <!-- Values grid -->
+    <div class="grid sm:grid-cols-2 gap-5 mb-14">
+      {valores.map((v) => (
+        <div
+          class="rounded-2xl p-6 transition-all"
+          style="background: var(--color-navy); border: 1px solid rgba(255,255,255,0.06);"
+        >
+          <div class="text-3xl mb-4">{v.icon}</div>
+          <h3 class="text-base font-bold text-white mb-2" style="font-family: var(--font-display);">
+            {v.title}
+          </h3>
+          <p class="font-sans text-sm text-[var(--color-muted)] leading-relaxed">
+            {v.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Inspiration / history note -->
+    <div
+      class="rounded-2xl p-8 text-center"
+      style="background: linear-gradient(135deg, rgba(0,80,142,0.12), rgba(167,230,127,0.06)); border: 1px solid rgba(74,144,217,0.2);"
+    >
+      <div class="font-sans text-[10px] tracking-[0.3em] uppercase font-bold mb-3" style="color: var(--color-green);">
+        Herencia · Legado
+      </div>
+      <p class="font-sans text-sm text-[var(--color-muted)] leading-relaxed max-w-2xl mx-auto">
+        Inspirados en los sistemas que construyeron las organizaciones más grandes
+        del mundo — desde el <strong class="text-white">Internet Services</strong> de
+        Dexter Yager hasta el <strong class="text-white">Institute of Business</strong> —
+        PECC trae ese mismo estándar al network marketing de habla hispana, adaptado
+        a nuestra era digital y nuestra cultura latinoamericana.
+      </p>
+    </div>
+
+    <!-- Credits strip -->
+    <div class="mt-14 pt-10 text-center" style="border-top: 1px solid rgba(255,255,255,0.06);">
+      <p class="font-sans text-xs text-[var(--color-muted)] tracking-wide leading-relaxed">
+        Impulsado por <a href="https://chrisolave.me" target="_blank" rel="noopener" class="text-[var(--color-green)] hover:underline font-semibold">Chris Olave</a>
+        y los líderes de
+        <a href="https://equipogen.com" target="_blank" rel="noopener" class="text-[var(--color-green)] hover:underline font-semibold">EquipoGen</a>
+        · Forma parte de los <a href="https://chrisolave.me" target="_blank" rel="noopener" class="text-[var(--color-green)] hover:underline font-semibold">3 pilares del ecosistema chrisolave.me</a>
+      </p>
+    </div>
+
+  </div>
+</section>
