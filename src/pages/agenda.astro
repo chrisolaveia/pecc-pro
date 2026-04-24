@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+
+const title = 'Agenda una llamada 1:1 · PECC'
+const description = 'Agenda una llamada de estrategia 1:1 con el equipo PECC. Diagnóstico, plan de acción y siguiente nivel para tu negocio de network marketing.'
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical="https://www.pecc.pro/agenda"
+>
+  <Nav />
+
+  <main role="main" class="min-h-screen">
+    <section class="pt-32 pb-20 px-6 relative overflow-hidden dot-bg">
+      <div
+        class="absolute top-[-100px] right-[-150px] w-[500px] h-[500px] rounded-full pointer-events-none"
+        style="background: radial-gradient(circle, rgba(74,144,217,0.25) 0%, transparent 65%);"
+      ></div>
+
+      <div class="relative max-w-3xl mx-auto text-center">
+        <div class="section-eyebrow justify-center mb-6">Llamada de estrategia</div>
+        <h1 class="text-5xl md:text-6xl leading-tight mb-6">
+          Agenda una<br />
+          <span class="green-gradient">llamada 1:1</span>
+        </h1>
+        <p class="font-sans text-base text-[var(--color-muted)] leading-relaxed mb-10 max-w-xl mx-auto">
+          Una sesión privada de 30 minutos para diagnosticar dónde está tu
+          negocio hoy y qué pasos específicos te llevan al siguiente nivel.
+          Sin promesas vacías — solo estrategia concreta.
+        </p>
+
+        <div class="glass rounded-2xl p-10 max-w-lg mx-auto mb-8">
+          <div class="text-4xl mb-4">📞</div>
+          <h2 class="text-xl text-white mb-3" style="font-family: var(--font-display);">
+            Integración de calendario
+          </h2>
+          <p class="font-sans text-sm text-[var(--color-muted)] leading-relaxed mb-6">
+            Estamos conectando la agenda online. Mientras tanto, contáctanos
+            directamente por WhatsApp o correo para coordinar tu llamada.
+          </p>
+
+          <div class="flex flex-col gap-3">
+            <a
+              href="https://chrisolave.me/#colabora"
+              class="font-sans text-sm font-bold px-6 py-3 rounded-lg transition-all btn-primary no-underline text-center"
+            >
+              Solicitar llamada por formulario
+            </a>
+            <a
+              href="https://www.youtube.com/@peccpro"
+              target="_blank"
+              rel="noopener"
+              class="font-sans text-sm font-bold px-6 py-3 rounded-lg transition-all btn-secondary no-underline text-center"
+            >
+              Ver capacitaciones mientras tanto
+            </a>
+          </div>
+        </div>
+
+        <p class="font-sans text-xs text-[var(--color-muted)]">
+          ¿Prefieres ir directo a la comunidad? Visita
+          <a href="https://equipogen.com" target="_blank" rel="noopener" class="text-[var(--color-green)] hover:underline">equipogen.com</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

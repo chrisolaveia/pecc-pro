@@ -1,0 +1,37 @@
+# PECC.PRO — robots.txt
+# https://www.pecc.pro
+
+User-agent: *
+Allow: /
+
+# AI crawlers — explicitly allowed for discoverability
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Aggressive bots — throttled
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Known bad actors — blocked
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+Sitemap: https://www.pecc.pro/sitemap-index.xml

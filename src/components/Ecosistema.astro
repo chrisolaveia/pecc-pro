@@ -1,0 +1,110 @@
+---
+const pilares = [
+  {
+    emoji: '📚',
+    tag: 'Academia',
+    title: 'Biblioteca del Éxito',
+    desc: '24 libros de network marketing, liderazgo y mindset leídos completos en vivo. Más de 319 transmisiones organizadas por categoría.',
+    cta: 'Ver biblioteca',
+    href: 'https://chrisolave.me/biblioteca',
+    accent: 'var(--color-green)',
+    glow: 'rgba(167,230,127,0.15)',
+  },
+  {
+    emoji: '🛒',
+    tag: 'Tienda',
+    title: 'Libros & Herramientas',
+    desc: 'Los clásicos del network marketing en físico y digital. Libros, cursos y material de apoyo para tu organización.',
+    cta: 'Ir a la tienda',
+    href: 'https://tienda.pecc.pro',
+    accent: 'var(--color-gold)',
+    glow: 'rgba(232,184,74,0.15)',
+  },
+  {
+    emoji: '🎪',
+    tag: 'Eventos',
+    title: 'Experiencias LIVE',
+    desc: 'Eventos online y presenciales diseñados para mover a la acción. Entrenamientos, convenciones y llamadas de liderazgo.',
+    cta: 'Ver eventos',
+    href: 'https://eventos.pecc.pro',
+    accent: 'var(--color-blue-light)',
+    glow: 'rgba(74,144,217,0.18)',
+  },
+  {
+    emoji: '📞',
+    tag: 'Agenda',
+    title: 'Llamadas 1:1',
+    desc: 'Agenda una sesión de estrategia con el equipo PECC: diagnóstico, plan de acción y siguiente nivel para tu negocio.',
+    cta: 'Reservar llamada',
+    href: '/agenda',
+    accent: 'var(--color-sky)',
+    glow: 'rgba(151,230,243,0.18)',
+  },
+]
+---
+
+<section id="ecosistema" class="py-24 px-6" style="background: var(--color-surface);">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <div class="section-eyebrow justify-center mb-4">El ecosistema PECC</div>
+      <h2 class="text-4xl md:text-5xl">
+        Todo lo que necesitas,<br />
+        <span class="green-gradient">en un solo lugar</span>
+      </h2>
+      <p class="font-sans text-sm text-[var(--color-muted)] mt-4 max-w-xl mx-auto leading-relaxed">
+        Cuatro motores que alimentan a la organización: educación, producto,
+        eventos y acceso directo. Cada uno diseñado para hacer crecer tu
+        negocio de network marketing.
+      </p>
+      <div class="w-12 h-0.5 mx-auto mt-6" style="background: var(--color-green);"></div>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid sm:grid-cols-2 gap-5">
+      {pilares.map((p) => (
+        <a
+          href={p.href}
+          target={p.href.startsWith('http') ? '_blank' : '_self'}
+          rel={p.href.startsWith('http') ? 'noopener' : ''}
+          class="group relative rounded-2xl p-7 flex flex-col gap-4 transition-all duration-300 no-underline"
+          style={`background: var(--color-navy); border: 1px solid rgba(255,255,255,0.06);`}
+          onmouseover={`this.style.borderColor='${p.accent}60'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 20px 60px ${p.glow}';`}
+          onmouseout={`this.style.borderColor='rgba(255,255,255,0.06)'; this.style.transform='translateY(0)'; this.style.boxShadow='none';`}
+        >
+          <!-- Top accent -->
+          <div
+            class="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl opacity-60 group-hover:opacity-100 transition-opacity"
+            style={`background: linear-gradient(90deg, ${p.accent}, transparent);`}
+          ></div>
+
+          <div class="flex items-center gap-4">
+            <div
+              class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl"
+              style={`background: linear-gradient(145deg, ${p.accent}22, ${p.accent}08); border: 1px solid ${p.accent}33;`}
+            >{p.emoji}</div>
+            <div
+              class="font-sans text-[10px] tracking-[0.25em] uppercase font-semibold"
+              style={`color: ${p.accent};`}
+            >{p.tag}</div>
+          </div>
+
+          <h3 class="text-xl text-white leading-snug" style="font-family: var(--font-display); font-weight: 800;">
+            {p.title}
+          </h3>
+          <p class="font-sans text-sm text-[var(--color-muted)] leading-relaxed flex-1">{p.desc}</p>
+
+          <div
+            class="font-sans text-sm font-bold flex items-center gap-2 transition-all duration-200 group-hover:gap-3 mt-auto"
+            style={`color: ${p.accent};`}
+          >
+            {p.cta}
+            <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Hero from '../components/Hero.astro'
+import Ecosistema from '../components/Ecosistema.astro'
+import Academia from '../components/Academia.astro'
+import SobreChris from '../components/SobreChris.astro'
+import Contacto from '../components/Contacto.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout>
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded focus:bg-[var(--color-green)] focus:text-[var(--color-navy)] focus:font-bold"
+  >
+    Saltar al contenido principal
+  </a>
+
+  <Nav />
+
+  <main id="main-content" role="main">
+    <Hero />
+    <Ecosistema />
+    <Academia />
+    <SobreChris />
+    <Contacto />
+  </main>
+
+  <Footer />
+</Layout>

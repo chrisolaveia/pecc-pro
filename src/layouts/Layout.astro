@@ -1,0 +1,193 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+  image?: string
+  canonical?: string
+  noindex?: boolean
+  keywords?: string
+  type?: 'website' | 'article' | 'profile'
+  publishedTime?: string
+  modifiedTime?: string
+}
+
+const {
+  title = 'PECC · Impulsa tu Negocio y Liderazgo en Network Marketing',
+  description = 'PECC es la plataforma educativa, de eventos y herramientas para líderes de network marketing. Libros, agenda, eventos en vivo y capacitaciones para hacer crecer tu organización.',
+  image = '/og-image.jpg',
+  canonical,
+  noindex = false,
+  keywords = 'PECC, network marketing, MLM, liderazgo, educación multinivel, eventos network marketing, agenda llamadas, capacitación MLM, Chris Olave, EquipoGen, Biblioteca del Éxito, libros MLM',
+  type = 'website',
+  publishedTime = '2026-04-24T00:00:00Z',
+  modifiedTime = new Date().toISOString(),
+} = Astro.props
+
+const siteUrl = 'https://www.pecc.pro'
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/'
+const canonicalURL = canonical ?? new URL(pathname, siteUrl).href
+const imageURL = new URL(image, siteUrl).href
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
+      name: 'PECC',
+      legalName: 'PECC.PRO',
+      url: siteUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/logo.svg`,
+      },
+      description:
+        'Plataforma de educación, eventos y herramientas para líderes de network marketing.',
+      founder: {
+        '@type': 'Person',
+        name: 'Chris Olave',
+        url: 'https://chrisolave.me',
+      },
+      sameAs: [
+        'https://www.youtube.com/@peccpro',
+        'https://chrisolave.me',
+        'https://equipogen.com',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: siteUrl,
+      name: 'PECC',
+      description,
+      inLanguage: 'es-CL',
+      publisher: { '@id': `${siteUrl}/#organization` },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${canonicalURL}#webpage`,
+      url: canonicalURL,
+      name: title,
+      description,
+      isPartOf: { '@id': `${siteUrl}/#website` },
+      primaryImageOfPage: { '@type': 'ImageObject', url: imageURL },
+      datePublished: publishedTime,
+      dateModified: modifiedTime,
+      inLanguage: 'es-CL',
+      about: { '@id': `${siteUrl}/#organization` },
+    },
+    {
+      '@type': 'EducationalOrganization',
+      '@id': `${siteUrl}/#education`,
+      name: 'PECC Academia',
+      description:
+        'Formación continua en network marketing: libros, lectura en vivo y capacitaciones.',
+      url: siteUrl,
+      parentOrganization: { '@id': `${siteUrl}/#organization` },
+      areaServed: ['Chile', 'Latinoamérica'],
+    },
+  ],
+}
+---
+
+<!doctype html>
+<html lang="es-CL" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Chris Olave" />
+    <meta name="publisher" content="PECC" />
+    <meta name="language" content="Spanish" />
+    <meta name="geo.region" content="CL" />
+    <meta name="geo.placename" content="Chile" />
+    <meta name="rating" content="General" />
+    <meta name="distribution" content="global" />
+
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="es-cl" href={canonicalURL} />
+    <link rel="alternate" hreflang="es" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+
+    {
+      noindex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
+      )
+    }
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+
+    <meta name="theme-color" content="#0A1628" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:site_name" content="PECC" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:secure_url" content={imageURL} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="PECC — Impulsa tu Negocio y Liderazgo en Network Marketing" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+    <meta name="twitter:image:alt" content="PECC — Network Marketing" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/logo.svg" />
+    <meta name="apple-mobile-web-app-title" content="PECC" />
+    <meta name="application-name" content="PECC" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts: Montserrat (display) + Inter (body) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD -->
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(structuredData)}
+    />
+
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

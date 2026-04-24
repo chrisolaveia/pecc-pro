@@ -1,0 +1,93 @@
+---
+const columns = [
+  {
+    title: 'Ecosistema',
+    links: [
+      { label: 'Biblioteca del Éxito', href: 'https://chrisolave.me/biblioteca', external: true },
+      { label: 'Tienda', href: 'https://tienda.pecc.pro', external: true },
+      { label: 'Eventos', href: 'https://eventos.pecc.pro', external: true },
+      { label: 'Agenda 1:1', href: '/agenda', external: false },
+    ],
+  },
+  {
+    title: 'Comunidad',
+    links: [
+      { label: 'EquipoGen', href: 'https://equipogen.com', external: true },
+      { label: 'Chris Olave', href: 'https://chrisolave.me', external: true },
+      { label: 'YouTube PECC', href: 'https://www.youtube.com/@peccpro', external: true },
+      { label: 'YouTube Chris', href: 'https://www.youtube.com/@chrisolave', external: true },
+    ],
+  },
+  {
+    title: 'Pilares Chris Olave',
+    links: [
+      { label: 'MINED · AI Academy', href: 'https://chrisolave.app/academy', external: true },
+      { label: 'FWP · Bienestar', href: 'https://fwp.lat', external: true },
+      { label: 'chrisolave.me', href: 'https://chrisolave.me', external: true },
+    ],
+  },
+]
+---
+
+<footer
+  role="contentinfo"
+  aria-label="Pie de página"
+  class="px-6 pt-16 pb-10"
+  style="border-top: 1px solid rgba(255,255,255,0.06); background: var(--color-surface);"
+>
+  <div class="max-w-6xl mx-auto">
+
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+
+      <!-- Brand -->
+      <div>
+        <a href="/" class="flex items-center gap-2 mb-4 no-underline">
+          <div
+            class="w-9 h-9 rounded-lg flex items-center justify-center text-base font-black"
+            style="background: linear-gradient(135deg, var(--color-blue), var(--color-blue-light)); color: white; font-family: var(--font-display);"
+          >P</div>
+          <span class="text-xl font-black text-white tracking-tight" style="font-family: var(--font-display);">PECC</span>
+        </a>
+        <p class="font-sans text-xs text-[var(--color-muted)] leading-relaxed max-w-[220px]">
+          Plataforma de educación, eventos y herramientas para líderes de network marketing.
+        </p>
+      </div>
+
+      {columns.map((col) => (
+        <div>
+          <h3 class="font-sans text-[10px] font-bold tracking-[0.25em] uppercase text-white mb-4">
+            {col.title}
+          </h3>
+          <ul class="space-y-2.5 list-none">
+            {col.links.map((l) => (
+              <li>
+                <a
+                  href={l.href}
+                  target={l.external ? '_blank' : '_self'}
+                  rel={l.external ? 'noopener' : ''}
+                  class="font-sans text-xs text-[var(--color-muted)] hover:text-white transition-colors no-underline"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom strip -->
+    <div
+      class="flex flex-col md:flex-row items-center justify-between gap-4 pt-8"
+      style="border-top: 1px solid rgba(255,255,255,0.06);"
+    >
+      <p class="font-sans text-xs text-[var(--color-muted)]">
+        © 2026 PECC.PRO · Todos los derechos reservados
+      </p>
+      <p class="font-sans text-xs text-[var(--color-muted)]">
+        Impulsando el network marketing en 🇨🇱 Chile y LATAM
+      </p>
+    </div>
+
+  </div>
+</footer>

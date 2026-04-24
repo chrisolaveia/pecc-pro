@@ -1,0 +1,122 @@
+---
+---
+
+<header
+  id="nav"
+  role="banner"
+  class="fixed top-0 w-full z-50 transition-all duration-300"
+  style="background: rgba(10,22,40,0); backdrop-filter: blur(0px);"
+>
+  <nav
+    aria-label="Navegación principal"
+    class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between"
+  >
+    <!-- Logo -->
+    <a href="/" aria-label="PECC — Inicio" class="flex items-center gap-2 group no-underline">
+      <div
+        class="w-8 h-8 rounded-lg flex items-center justify-center font-black text-sm transition-all group-hover:scale-110"
+        style="background: linear-gradient(135deg, var(--color-blue), var(--color-blue-light)); color: white; font-family: var(--font-display);"
+      >P</div>
+      <span
+        class="text-xl font-black tracking-tight text-white transition-colors"
+        style="font-family: var(--font-display);"
+      >PECC</span>
+      <span class="font-sans text-xs font-medium text-[var(--color-muted)] hidden sm:block">.pro</span>
+    </a>
+
+    <!-- Desktop menu -->
+    <ul class="hidden md:flex items-center gap-8 list-none">
+      <li>
+        <a
+          href="#ecosistema"
+          class="font-sans text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] hover:text-white transition-colors"
+        >Ecosistema</a>
+      </li>
+      <li>
+        <a
+          href="#academia"
+          class="font-sans text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] hover:text-white transition-colors"
+        >Academia</a>
+      </li>
+      <li>
+        <a
+          href="https://tienda.pecc.pro"
+          target="_blank"
+          rel="noopener"
+          class="font-sans text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] hover:text-white transition-colors"
+        >Tienda</a>
+      </li>
+      <li>
+        <a
+          href="https://eventos.pecc.pro"
+          target="_blank"
+          rel="noopener"
+          class="font-sans text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] hover:text-white transition-colors"
+        >Eventos</a>
+      </li>
+      <li>
+        <a
+          href="#contacto"
+          class="font-sans text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-md transition-all btn-primary no-underline"
+        >Únete</a>
+      </li>
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-btn"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      class="md:hidden text-[var(--color-muted)] hover:text-white"
+    >
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden border-t px-6 py-4 flex-col gap-4"
+    style="background: rgba(10,22,40,0.98); border-color: rgba(167,230,127,0.15);"
+  >
+    <a href="#ecosistema" class="font-sans text-sm text-[var(--color-muted)] hover:text-white">Ecosistema</a>
+    <a href="#academia" class="font-sans text-sm text-[var(--color-muted)] hover:text-white">Academia</a>
+    <a href="https://tienda.pecc.pro" target="_blank" rel="noopener" class="font-sans text-sm text-[var(--color-muted)] hover:text-white">Tienda</a>
+    <a href="https://eventos.pecc.pro" target="_blank" rel="noopener" class="font-sans text-sm text-[var(--color-muted)] hover:text-white">Eventos</a>
+    <a href="#contacto" class="font-sans text-sm font-bold px-4 py-2 rounded-md text-center btn-primary no-underline">Únete</a>
+  </div>
+</header>
+
+<script>
+  const nav = document.getElementById('nav')!
+  const menuBtn = document.getElementById('menu-btn')!
+  const mobileMenu = document.getElementById('mobile-menu')!
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav.style.background = 'rgba(10,22,40,0.94)'
+      nav.style.backdropFilter = 'blur(16px)'
+      nav.style.borderBottom = '1px solid rgba(167,230,127,0.12)'
+    } else {
+      nav.style.background = 'rgba(10,22,40,0)'
+      nav.style.backdropFilter = 'blur(0px)'
+      nav.style.borderBottom = 'none'
+    }
+  })
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden')
+    mobileMenu.classList.toggle('flex')
+  })
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden')
+      mobileMenu.classList.remove('flex')
+    })
+  })
+</script>
