@@ -28,3 +28,4 @@ pnpm-debug.log*
 # netlify
 .netlify/
 .astro/
+package-lock 2.json
